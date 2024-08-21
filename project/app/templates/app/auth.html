@@ -1,0 +1,39 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css_conect %}<link rel="stylesheet" href="{% static 'app/css/auth.css' %}">{% endblock %}
+{% block title %}BBC | Авторизация{% endblock %}
+{% block content %}
+<div class="back">
+
+
+  <div class="div-center">
+
+
+    <div class="content">
+
+      {% if user.is_authenticated %}
+        <h3>Ты чё тут делаешь ты уже зареган</h3>
+        <hr />
+      {% else %}
+        <h3>Вход</h3>
+        <hr />
+        
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            {{ form }}
+          </div>
+          <button type="submit" class="btn btn-secondary btn-sm" id="auth_confirm">Войти</button>
+          <hr />
+
+        </form>
+        <a href="{% url 'registration' %}" class="btn btn-secondary btn-sm" role="button">Регистрация</a>
+
+      </div>
+      {% endif %}
+
+
+    </span>
+  </div>
+{% endblock %}

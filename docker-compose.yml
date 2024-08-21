@@ -1,0 +1,41 @@
+version: "3.9"
+
+
+services:
+  postgres-db:
+    image: postgres:16.3-alpine
+    container_name: postgres
+    env_file: "project/.env"
+    ports:
+      - "5433:5432"
+    
+  web:
+    build:
+      context: ./project
+    ports:
+      - "8001:8000"
+    depends_on:
+      - postgres-db
+
+  redis:
+    image: redis:7.4-alpine
+    ports:
+      - "6379:6379"
+
+  celery:
+    build:
+      context: ./project
+    command: celery -A project worker --loglevel=info
+    depends_on:
+      - redis
+      - postgres-db
+    env_file: "project/.env"
+
+  celery-beat:
+    build:
+      context: ./project
+    command: celery -A project beat --loglevel=info
+    depends_on:
+      - redis
+      - postgres-db
+    env_file: "project/.env"

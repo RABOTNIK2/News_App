@@ -1,0 +1,19 @@
+#header{
+    background-color: #90a4ae;
+}
+
+.theme-toggle svg.theme-icon-when-auto, .theme-toggle svg.theme-icon-when-dark, .theme-toggle svg.theme-icon-when-light{
+    color: #90a4ae;
+}
+
+#site-name a:link, #site-name a:visited{
+    color: white;
+}
+
+.module h2, .module caption, .inline-group h2{
+    background: #90a4ae;
+}
+
+div.breadcrumbs{
+    background-color: #333e44;
+}

@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block css_conect %}<link rel="stylesheet" href="{% static 'app/css/auth.css' %}">{% endblock %}
+{% block title %}BBC | Изменить комментарий {% endblock %}
+{% block content %}
+<div class="back">
+
+    <div class="div-center">
+  
+  
+      <div class="content">
+  
+  
+        <h3>Вы действительно хотите удалить комментарий?</h3>
+        <hr />
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-secondary btn-sm" id="auth_confirm">Удалить</button>
+            <hr />
+  
+        </form>
+      </div>
+  
+  
+      </span>
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block css_conect %}<link rel="stylesheet" href="{% static 'app/css/auth.css' %}">{% endblock %}
+{% block title %}BBC | Изменение {% endblock %}
+{% block content %}
+<div class="back">
+
+
+  <div class="div-center">
+
+
+    <div class="content">
+
+      {% if not user.is_authenticated %}
+        <h3>Ты чё тут делаешь? Ты не авторизован!!</h3>
+        <hr />
+      {% endif %}
+      <h3>Изменение</h3>
+      <hr />
+      <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          {{ form }}
+        </div>
+
+        <button type="submit" class="btn btn-secondary btn-sm" id="auth_confirm">Обновить</button>
+        <hr />
+        <a href="{% url 'profile' user.pk %}" class="btn btn-secondary btn-sm" role="button">Вернуться</a>
+
+      </form>
+
+    </div>
+
+
+    </span>
+  </div>
+{% endblock %}

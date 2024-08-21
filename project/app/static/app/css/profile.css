@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+body {
+	margin: 0;
+	font-weight: 800;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+header {
+  background: #111111;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logo {
+  float: left;
+  padding: 10px 0;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+
+  position: relative;
+}
+
+nav a {
+  color: ivory;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+nav a:hover {
+  color: #cec3c3;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #cec3c3;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+.BBC_label{
+    color: ivory;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: 'Work Sans', sans-serif;
+}
+  
+.BBC_label:hover {
+    color: #cec3c3;
+}
+  
+.BBC_label::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: #cec3c3;
+  
+    position: absolute;
+    top: 0;
+    width: 0%;
+  
+    transition: all ease-in-out 250ms;
+}
+
+
+.card{
+  width: 400px;
+  border: none;
+  border-radius: 10px;
+   
+  background-color: #fff;
+}
+
+.stats{
+    background: #f2f5f8 !important;
+    color: #000 !important;
+}
+.articles{
+  font-size:10px;
+  color: #ffffff;
+}
+.number1{
+  font-weight:500;
+}
+.followers{
+    font-size:10px;
+  color: #a1aab9;
+
+}
+.number2{
+  font-weight:500;
+}
+.rating{
+    font-size:10px;
+  color: #a1aab9;
+}
+.number3{
+  font-weight:500;
+}

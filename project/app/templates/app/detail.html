@@ -1,0 +1,80 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block css_conect %}<link rel="stylesheet" href="{% static 'app/css/detail.css' %}">{% endblock %}
+{% block title %}BBC | Новость{% endblock %}
+{% block content %}
+<header>
+  <div class="container">
+    <h1 class="logo"></h1>
+
+    <nav>
+      <ul>
+        <li><h3 class="BBC_label">BBC</h3></li>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'profile' user.pk %}">Профиль</a></li>
+        {% else %}
+          <li><a href="{% url 'login' %}">Авторизация</a></li>
+        {% endif %}
+        <li><a href="{% url 'main' %}">Главная</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="soply">
+  <h2>{{ news.title }}</h2>
+  <ul class="pidor">
+      <li>{{ news.news_posted_at }}</li>
+      <li>{{ news.category }}</li>
+  </ul>
+</div>
+<div class="gandon">
+  <img src="/media/{{ news.news_image }}" id="lox228">
+  <h4>{{ news.news_text }}</h4>
+</div>
+
+<hr>
+<section class="content-item" id="comments">
+    <div class="container">   
+    	<div class="row">
+            <div class="col-sm-8">
+              <h3 class="pull-left">Добавить коментарий</h3>   
+              {% if user.is_authenticated %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <div class="row">
+                            <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                {{ form }}
+                            </div>
+                        </div>  	
+                    </fieldset>
+                    <button type="submit" class="btn btn-secondary pull-right">Submit</button>
+                </form>
+              {% endif %}
+                
+                <h3>{{ comments_count }} Комментариев</h3>
+                <hr>
+                {% for i in comments %}
+                  <div class="media">
+                      <a class="pull-left" href="#"><img class="media-object" src="/media/{{ i.author.image }}" alt=""></a>
+                      <div class="media-body">
+                          <h4 class="media-heading"><a href="{% url 'profile' i.author.pk %}" class="skull">{{ i.author.name }}</a></h4></h4>
+                          <p>{{ i.comment_text }}</p>
+                          {% if user.is_authenticated and i.author.pk == user.pk %}
+                            <a href="{% url 'comment_delete' news.pk i.pk %}" class="btn btn-secondary btn-sm" role="button">Удалить</a>
+                            <a href="{% url 'comment_change' news.pk i.pk  %}" class="btn btn-secondary btn-sm" role="button">Изменить</a>
+                          {% endif %}
+                          <ul class="list-unstyled list-inline media-detail pull-left">
+                              <li><i class="fa fa-calendar"></i>{{ i.comment_posted_at }}</li>
+                          </ul>
+                      </div>
+                  </div>
+                {% endfor %}
+                
+            
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

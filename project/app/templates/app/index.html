@@ -1,0 +1,70 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block css_conect %}<link rel="stylesheet" href="{% static 'app/css/style.css' %}">{% endblock %}
+{% block title %}BBC | Новости{% endblock %}
+{% block content %}
+<header>
+  <div class="container">
+    <h1 class="logo"></h1>
+
+    <nav>
+      <ul>
+        <li><h3 class="BBC_label">BBC</h3></li>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'profile' user.pk %}">Профиль</a></li>
+        {% else %}
+          <li><a href="{% url 'login' %}">Авторизация</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="sperma">
+
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center right-bck">
+            <div class="registration-right">
+                <h2> Новости </h2>
+                <form method="post" id="selection">
+                  {% csrf_token %}
+                  <div class="categories">
+                    <select class="form-select bg-light" name='filtering' aria-label="Default select example">
+                      <option selected value="-1">Выберите категорию</option>
+                      {% for i in categories %}
+                        <option value="{{ i.pk }}">{{ i.name }}</option>
+                      {% endfor %}
+
+                    </select>
+                    <button class='btn btn-secondary btn-sm' type="submit">Фильтровать</button>
+                  </div>
+                </form>
+
+                <form method="post" id="selection">
+                  {% csrf_token %}
+                  <div class="categories">
+                    <button class='btn btn-secondary btn-sm' name="cancel" type="submit">Убрать фильтры</button>
+                  </div>
+                </form>
+                <div class="event-list">
+                  {% for i in news %}
+                      <div class="card flex-row"><img id='jopa' src= '/media/{{ i.news_image }}' />
+                          <div class="card-body">
+                              <h4 class="card-title h5 h4-sm"><i class="fas fa-caret-right" aria-hidden="true"></i><span>{{ i.news_posted_at }}</span><i class="fas fa-caret-right" aria-hidden="true"></i><span>{{ i.category }}</span> </h4>
+                              <p class="card-text">{{ i.title }}</p>
+                              <p class="card-text">{{ i.news_text|truncatewords:10 }}</p>
+                              <a href="{% url 'detail_news' i.pk %}" class="btn btn-secondary btn-sm" role="button">Читать далее...</a>
+                          </div>
+                      </div>
+                  {% endfor %}
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}

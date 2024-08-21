@@ -1,0 +1,10 @@
+{% extends 'app/account_sent.html' %}
+{% block H_message %}Почта Подтвержена{% endblock %}
+{% if user.is_authenticated %}
+    {% block P_message %}
+        <p>Здарова, {{ user.name }}! Почта Подтвержена</p>
+        <a href="{% url 'main' %}" class="btn btn-secondary btn-sm" role="button">Вернуться</a>
+    {% endblock %}
+    
+    
+{% endif %}

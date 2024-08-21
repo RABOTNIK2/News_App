@@ -1,0 +1,68 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block css_conect %}<link rel="stylesheet" href="{% static 'app/css/profile.css' %}">{% endblock %}
+{% block title %}BBC | Профиль{% endblock %}
+{% block content %}
+<header>
+  <div class="container">
+    <h1 class="logo"></h1>
+
+    <nav>
+      <ul>
+        <li><h3 class="BBC_label">BBC</h3></li>
+        <li><a href="{% url 'main' %}">Главная</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container mt-5 d-flex justify-content-center">
+
+  <div class="card" id="copchenka">
+
+      <div class="d-flex align-items-center">
+
+          <div class="image">
+      <img src="/media/{{ profile.image }}" class="rounded" width="155" >
+      <a href="{% url 'image' user.pk %}" class="btn btn-secondary btn-sm" role="button">Изменить фотографию</a>
+      </div>
+
+      <div class="ml-3 w-100">
+          
+         <h4 class="mb-0 mt-0">{{ profile.name }}</h4>
+         <span>{{ profile.email }}</span>
+
+         <div class="p-2 mt-2 bg-secondary d-flex justify-content-between rounded text-white stats">
+
+          <div class="d-flex flex-column">
+
+              <span class="articles">Лет</span>
+              <span class="number1">{{ profile.age }}</span>
+              
+          </div>
+             
+         </div>
+
+
+         <div class="button mt-2 d-flex flex-row align-items-center">
+
+          
+          {% if user.pk == profile.pk %}
+            <a href="{% url 'update' profile.pk %}" class="btn btn-secondary btn-sm" role="button">Изменить данные</a>
+            <a href="{% url 'password_change' profile.pk %}" class="btn btn-secondary btn-sm" role="button">Сменить пароль</a>
+            <a href="{% url 'user_logout' %}" class="btn btn-outline-secondary btn-sm" role="button">Выйти</a>
+          {% endif %}
+
+             
+         </div>
+
+
+      </div>
+
+          
+      </div>
+      
+  </div>
+   
+</div>
+{% endblock %}

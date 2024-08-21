@@ -1,0 +1,15 @@
+SECRET_KEY='secret'
+EMAIL_HOST_USER='example@yandex.ru'
+EMAIL_HOST_PASSWORD='password'
+
+POSTGRES_USER=kyrsach
+POSTGRES_PASSWORD=kyrsach
+POSTGRES_DB=kyrsach
+
+DEBUG=False
+
+DB_NAME=kyrsach
+DB_USER=kyrsach
+DB_PASSWORD=kyrsach
+DB_HOST=postgres-db
+DB_PORT=5432

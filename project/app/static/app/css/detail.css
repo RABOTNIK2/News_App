@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+body {
+	margin: 0;
+	font-weight: 800;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+header {
+  background: #111111;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logo {
+  float: left;
+  padding: 10px 0;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+
+  position: relative;
+}
+
+nav a {
+  color: ivory;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+nav a:hover {
+  color: #cec3c3;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #cec3c3;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+.right-bck {
+  background-color: #ffffff
+}
+
+.registration-right{
+  width: 80%;
+  padding-top: 50px;
+  padding-bottom: 50px
+}
+
+.registration-right h2{
+  color: #000000;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 20px
+}
+
+.registration .btn{
+  width: 100%
+}
+
+.fa, .fas, .fab{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900
+}
+
+.far{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400
+}
+
+.event-list .card{
+  background-color: #ebe5e5;
+  padding: 18px;
+  margin-bottom: 55px
+}
+
+.event-list img{
+  width: 77px;
+  height: 77px
+}
+
+.event-list h4{
+  color: #c0bfc9;
+  font-size: 16px
+}
+
+.event-list .card-title span{
+  padding-left: 5px;
+  padding-right: 20px;
+  font-size: 12px;
+  font-weight: 700
+}
+
+.event-list .card-text{
+  color: #353131;
+  font-weight: 700;
+  font-size: 16px
+}
+
+.event-list .card-body{
+  padding: 0 20px;
+  margin: 0 0 10px 0
+}
+
+.event-list .card-title svg{
+  color: #ffffff
+}
+
+.sperma{
+  display: flex;
+}
+
+.sperma .card{
+  justify-content: center;
+}
+
+.BBC_label{
+  color: ivory;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.BBC_label:hover {
+  color: #cec3c3;
+}
+
+.BBC_label::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #cec3c3;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+.soply{
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-evenly;
+}
+
+.pidor{
+  list-style: none;
+}
+
+#lox228{
+  width: 60%;
+  border-radius: 10px ;
+  margin-bottom: 60px;
+}
+
+.gandon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+
+}
+
+.content-item {
+    padding:30px 0;
+    background-color:#FFFFFF;
+}
+  
+.content-item.grey {
+  background-color:#F0F0F0;
+  padding:50px 0;
+  height:100%;
+}
+  
+.content-item h2 {
+  font-weight:700;
+  font-size:35px;
+  line-height:45px;
+  text-transform:uppercase;
+  margin:20px 0;
+}
+  
+.content-item h3 {
+  font-weight:400;
+  font-size:20px;
+  color:#555555;
+  margin:10px 0 15px;
+  padding:0;
+}
+  
+.content-headline {
+  height:1px;
+  text-align:center;
+  margin:20px 0 70px;
+}
+  
+.content-headline h2 {
+  background-color:#FFFFFF;
+  display:inline-block;
+  margin:-20px auto 0;
+  padding:0 20px;
+}
+  
+.grey .content-headline h2 {
+  background-color:#F0F0F0;
+}
+  
+.content-headline h3 {
+  font-size:14px;
+  color:#AAAAAA;
+  display:block;
+}
+  
+  
+#comments {
+  background-color:#FFFFFF;
+}
+  
+#comments form {
+  margin-bottom:30px;
+}
+  
+#comments .btn {
+  margin-top:7px;
+}
+  
+#comments form fieldset {
+  clear:both;
+}
+  
+#comments form textarea {
+  height:100px;
+}
+  
+#comments .media {
+  padding:20px 0;
+  margin:0;
+}
+  
+#comments .media > .pull-left {
+    margin-right:20px;
+}
+  
+#comments .media img {
+  max-width:100px;
+}
+  
+#comments .media h4 {
+  margin:0 0 10px;
+}
+  
+#comments .media h4 span {
+  font-size:14px;
+  float:right;
+  color:#999999;
+}
+  
+#comments .media p {
+  margin-bottom:15px;
+  text-align:justify;
+}
+  
+#comments .media-detail {
+  margin:0;
+}
+  
+#comments .media-detail li {
+  color:#AAAAAA;
+  font-size:12px;
+  padding-right: 10px;
+  font-weight:600;
+}
+  
+#comments .media-detail a:hover {
+  text-decoration:underline;
+}
+  
+#comments .media-detail li:last-child {
+  padding-right:0;
+}
+  
+#comments .media-detail li i {
+  color:#666666;
+  font-size:15px;
+  margin-right:10px;
+}
+
+.skull{
+  color: black;
+  text-decoration: none; 
+}
